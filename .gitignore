@@ -5,6 +5,12 @@ build/
 dist/
 wheels/
 *.egg-info
+.python*
 
 # Virtual environments
 .venv
+
+# Node
+**/node_modules/
+
+.DS_Store
