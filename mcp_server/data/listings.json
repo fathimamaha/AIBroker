@@ -1,0 +1,78 @@
+{
+  "pagination": {
+    "count": 287,
+    "nextOffset": 11
+  },
+  "listings": [
+    {
+      "id": "4592621",
+      "price": 3950,
+      "longitude": -74.00377039,
+      "latitude": 40.72914563,
+      "url": "https://www.streeteasy.com/rental/4592621"
+    },
+    {
+      "id": "4592565",
+      "price": 3800,
+      "longitude": -73.99454252,
+      "latitude": 40.75525912,
+      "url": "https://www.streeteasy.com/rental/4592565"
+    },
+    {
+      "id": "4592557",
+      "price": 3800,
+      "longitude": -73.9943873,
+      "latitude": 40.75547045,
+      "url": "https://www.streeteasy.com/rental/4592557"
+    },
+    {
+      "id": "4592502",
+      "price": 4000,
+      "longitude": -73.97399902,
+      "latitude": 40.74670029,
+      "url": "https://www.streeteasy.com/rental/4592502"
+    },
+    {
+      "id": "4592400",
+      "price": 2700,
+      "longitude": -73.99500275,
+      "latitude": 40.75559998,
+      "url": "https://www.streeteasy.com/rental/4592400"
+    },
+    {
+      "id": "4592376",
+      "price": 2562,
+      "longitude": -73.99629974,
+      "latitude": 40.71720123,
+      "url": "https://www.streeteasy.com/rental/4592376"
+    },
+    {
+      "id": "4592359",
+      "price": 3800,
+      "longitude": -73.97090149,
+      "latitude": 40.7478981,
+      "url": "https://www.streeteasy.com/rental/4592359"
+    },
+    {
+      "id": "4592260",
+      "price": 2750,
+      "longitude": -73.99500275,
+      "latitude": 40.75559998,
+      "url": "https://www.streeteasy.com/rental/4592260"
+    },
+    {
+      "id": "4592211",
+      "price": 2650,
+      "longitude": -73.99341983,
+      "latitude": 40.75679886,
+      "url": "https://www.streeteasy.com/rental/4592211"
+    },
+    {
+      "id": "4592194",
+      "price": 3950,
+      "longitude": -73.98231765,
+      "latitude": 40.7404884,
+      "url": "https://www.streeteasy.com/rental/4592194"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "4598188",
+  "status": "open",
+  "listedAt": "2024-11-26",
+  "closedAt": null,
+  "daysOnMarket": 22,
+  "availableFrom": "2024-11-26",
+  "address": "350 East 30th Street #2L",
+  "price": 3750,
+  "borough": "manhattan",
+  "neighborhood": "kips-bay",
+  "zipcode": "10016",
+  "propertyType": "condo",
+  "sqft": 0,
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "type": "rental",
+  "latitude": 40.74110031,
+  "longitude": -73.97589874,
+  "amenities": [
+    "bike_room",
+    "city_view",
+    "dishwasher",
+    "dogs",
+    "doorman",
+    "elevator",
+    "fios_available",
+    "garage",
+    "hardwood_floors",
+    "laundry",
+    "live_in_super",
+    "nyc_evacuation_6",
+    "package_room",
+    "pets",
+    "skyline_view",
+    "smoke_free"
+  ],
+  "builtIn": 1956,
+  "description": "Huge 2 Bedroom Apartment in a Luxury Doorman Condo Bldg in the Kips Bay/Murray Hill area.\n\nTEXT OR CALL MY CELL FOR SHOWING.\n\nBright & Sunny rooms with large windows. Good light and good space, renovated Kitchen with all new appliances. Plenty of space for a dining area and numerous deep closets.\n\nThis building is an established and well maintained, 24 hour, fully-staffed condominium with a Doorman, a Live-in super for any maintenance issues, elevators, modern laundry room and a Sprawling Luxury Lobby. It also includes a garage next door , separate storage space downstairs. Quiet, Brownstoned and Tree-lined street conveniently located near schools, world cuisines, shops, nightlife, and transportation.\nAlso on the same block is the new 44,000 sqft Fairway Supermarket and the Kips Bay Plaza for ALL your needs. This gem of a home is located in the heart of the greatest city in the world.",
+  "building": {
+    "id": "16541"
+  },
+  "agents": [
+    "Abraham Shklar"
+  ],
+  "noFee": false,
+  "images": [
+    "https://photos.zillowstatic.com/fp/0732e772980af6a2f7a8631385ce93aa-full.jpg",
+    "https://photos.zillowstatic.com/fp/c0e78ed8248c8fc841eab39431cd2caf-full.jpg",
+    "https://photos.zillowstatic.com/fp/93182f5ee0b3b51468a7ede382468b99-full.jpg",
+    "https://photos.zillowstatic.com/fp/93469edb4afd27d140806bd4ed9d5d13-full.jpg",
+    "https://photos.zillowstatic.com/fp/d49f9fa4cf564b120658ee1a33c24b32-full.jpg",
+    "https://photos.zillowstatic.com/fp/ab7c1789739c8b656bf8709c6bc22100-full.jpg",
+    "https://photos.zillowstatic.com/fp/4b06cea5805d2215a542160e80ee62f9-full.jpg"
+  ],
+  "videos": [],
+  "floorplans": [
+    "https://photos.zillowstatic.com/fp/c0e78ed8248c8fc841eab39431cd2caf-full.jpg"
+  ]
+}
