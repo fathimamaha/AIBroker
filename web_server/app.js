@@ -4,12 +4,11 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Configuration for the Python backend
 const PYTHON_BACKEND_URL = 'http://localhost:12345';
 
-// Configuration for polling
-const POLLING_INTERVAL_MS = 15000; // 2 seconds
-const POLLING_TIMEOUT_MS = 120000; // 2 minutes
+// Configuration for polling result
+const POLLING_INTERVAL_MS = 3000;
+const POLLING_TIMEOUT_MS = 120000;
 
 app.use(express.static('public'));
 
@@ -40,7 +39,7 @@ app.get('/query.html', async (req, res) => {
     const { query_id } = await submitResponse.json();
     console.log(`Received query_id: ${query_id}`);
 
-    // --- Step 2: Poll for the result ---
+    // poll for the result
     let finalResult = null;
     const startTime = Date.now();
 
@@ -49,7 +48,6 @@ app.get('/query.html', async (req, res) => {
       const getResultResponse = await fetch(`${PYTHON_BACKEND_URL}/get_query_response/${query_id}`);
 
       if (getResultResponse.status === 200) {
-        // Found the result, break the loop
         finalResult = await getResultResponse.json();
         console.log('Result found:', finalResult);
         break;
@@ -58,17 +56,15 @@ app.get('/query.html', async (req, res) => {
         console.log('Result not ready yet (202). Waiting...');
         await new Promise(resolve => setTimeout(resolve, POLLING_INTERVAL_MS));
       } else {
-        // Handle other unexpected statuses
         throw new Error(`Backend polling failed with status: ${getResultResponse.status}`);
       }
     }
 
-    // --- Step 3: Render the final HTML ---
+    // render final html
     if (finalResult) {
       const resultsHtml = generateResultsHtml(finalResult, searchQuery);
       res.send(resultsHtml);
     } else {
-      // If the loop finishes without a result, it timed out
       console.error('Polling timed out.');
       res.status(408).send('<h1>Request timed out. The server is taking too long to respond.</h1>');
     }
