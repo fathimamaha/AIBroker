@@ -1,18 +1,53 @@
-https://rapidapi.com/realestator/api/streeteasy-api/playground/apiendpoint_9e37dc9d-f9dd-4601-8447-21cc9717db0c
+# 🏙️ AIStreetEasy
 
-https://streasy.gitbook.io/search-api/rentals-api/streeteasy-active-rentals-search-api
+Welcome to **AIStreetEasy**! This project leverages AI to streamline real estate data analysis and provide actionable insights for users.
+
+---
+
+## ✨ Summary
+
+AIStreetEasy is a multi-component system designed to collect, process, and serve real estate data efficiently. It features a web interface, LLM Data Source Model Context Protocol (MCP) server, and a backend server, each with a specific role in the data pipeline.
+
+---
+
+## 🛠️ Backend Logic
+
+- **Web Server**: Handles user interactions and displays data.
+- **MCP Server (Model Context Protocol)**: Serves as the datasource for the LLM, LLM transforms any query into the the input params for the MCP tool, the MCP tool inturns queries StreetEasyAPI to get true live data of rentals, which the LLM formats to the desired format for the backend to process.
+- **Backend Server**: Processes data, queries AI models, and manages the database.
+
+---
+
+## 🗺️ Architecture Flowchart
+
+<!-- Add your architecture flowchart here -->
+
+---
+
+## 🎥 Demo Video
+
+<!-- Add your demo video here -->
+
+---
+
+
+## 🚀 To Dos
+
+- **Backend Caching**: Implement an external caching application on the backend server to enable persistent storage of frequently accessed data, improving performance and reducing redundant processing.
+- **MCP Server Query Storage**: Enhance the MCP server to store query results locally, minimizing repeated API calls to StreetEasy endpoints and optimizing response times for recurring queries.
+
+
+# 📦 Web Server
 
 
 
-Python Flask application with a frontend, backend, mp server that LLM uses to query the api and fetch results to query streeteasy NYC listing data using natural language, the agent will provide the best listing details that match your querywe
+---
+
+# 🔗 MCP Server
 
 
 
-//anthropic api to query
+---
 
+# 🧠 Backend Server
 
-//server to host mcp server, then connect mcp with the api
-//server to host the website
-
-
-//finally query the api with actual data

@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-const PYTHON_BACKEND_URL = 'http://localhost:12345';
+const PYTHON_BACKEND_URL = 'http://localhost:9001';
 
 // Configuration for polling result
 const POLLING_INTERVAL_MS = 3000;

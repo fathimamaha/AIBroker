@@ -3,18 +3,26 @@ from pathlib import Path
 from requests import Response
 import requests
 import json
+import os
 
 
 # data for mock server
-DATA_DIR = Path(__file__).resolve().parent.parent / "data/"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data/listing_by_url.json"
 MOCK_LISTING_JSON = "listing_by_id.json"
 MOCK_LISTING_JSON = "listings.json"
 
-def mock_listing_details():
+def mock_listing_details() -> dict:
+    """
+    Loads mock listing details from a local JSON file for testing or fallback purposes.
 
+    Returns:
+        list[dict]: A list containing the mock listing details dictionary,
+                    or [{}] if an error occurs.
+    """
     try:
-        with open(DATA_DIR+"/listing_by_url.json", 'r') as file:
+        with open(DATA_DIR, 'r') as file:
             data = json.load(file)
+            data["listing_url"] = "https://streeteasy.com"
             return data
 
     except FileNotFoundError:
@@ -29,9 +37,10 @@ def mock_listing_details():
 MOCK_DATA = mock_listing_details()
 
 # api info
+STREETEASY_API_KEY = os.environ.get("STREETEASY_API_KEY")
 STREETEASY_API_URL = "https://streeteasy-api.p.rapidapi.com/rentals/"
 STREETEASY_API_HEADERS = {
-	"x-rapidapi-key": "bb1e10f57bmshc704eaa7632f9d6p1efb95jsn07642b101ab1",
+	"x-rapidapi-key": STREETEASY_API_KEY,
 	"x-rapidapi-host": "streeteasy-api.p.rapidapi.com"
 }
 
@@ -49,7 +58,7 @@ def fetch_listing_details_by_url(url: str) -> dict:
     try:
         query_string = {"url":url}
         response = requests.get(STREETEASY_API_URL+"url", headers=STREETEASY_API_HEADERS, params=query_string)
-        listing_details = json.loads(response.json())
+        listing_details = response.json()
         
         #add url to listing details as its not present
         listing_details["listing_url"] = url
@@ -69,6 +78,8 @@ def fetch_all_listings_by_params(areas: list[str],
                                  minBaths: int,
                                  noFee: bool) -> Response:
     """
+    MCP Tool>>
+
     Fetch listings from StreetEasyAPI that match the parameters
 
     Args:
@@ -92,7 +103,7 @@ def fetch_all_listings_by_params(areas: list[str],
             "limit": "100",
             "offset": "0"
         }
-        
+
     Returns:
         A JSON response with the listings that satisfy the param with their details
     """
@@ -106,14 +117,19 @@ def fetch_all_listings_by_params(areas: list[str],
                         "minBeds": str(minBeds),
                         "maxBeds": str(maxBeds),
                         "minBaths": str(minBaths),
-                        "noFee": str(noFee),
+                        "noFee": "true" if noFee else "false",
                         "limit":"10",
                         "offset":"0"
         }
 
         #SCOPE: cache these results so api calls dont have to be made again
         response = requests.get(STREETEASY_API_URL+"search", headers=STREETEASY_API_HEADERS, params=query_string)
-        listings_dict = json.loads(response.json())
+
+        if "listings" not in response.json():
+            print(f"{response.json()} returned while fetching all listings")
+            return json.dumps(MOCK_DATA), 200
+
+        listings_dict = response.json()
         for listing in listings_dict["listings"]:
             result.append(fetch_listing_details_by_url(listing["url"]))
 
@@ -121,9 +137,7 @@ def fetch_all_listings_by_params(areas: list[str],
         print(f"{e} occured while fetching all listings")
 
         #if error raised with some results, return current result set
-        if result:
-            return result
+        if not result:
+            return json.dumps(MOCK_DATA), 200
         
-        #send mock data
-        result.append(MOCK_DATA)
-        return result
+    return result, 200

@@ -1,12 +1,12 @@
 [project]
 name = "backend-server"
 version = "0.1.0"
-description = "Add your description here"
+description = "This is the backend server for the AIStreetEasy project. It acts as an API layer between the web UI and the AI/mcp server, handling user queries and returning NYC rental data."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "flask",
     "requests",
     "anthropic",
-    "flask-cors"
+    "fastmcp"
 ]

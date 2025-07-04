@@ -1,3 +1,4 @@
+<!---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,10 @@
 
     <div class="min-h-screen flex flex-col p-4 sm:p-6 lg:p-8">
         <header class="w-full max-w-7xl mx-auto mb-6">
-            <h1 class="text-2xl font-bold text-blue-600">AIBroker</h1>
+            <h1 class="text-3xl font-bold text-blue-600 mb-2">AIBroker</h1>
+            <p class="text-slate-600 text-lg leading-relaxed max-w-3xl">
+                Discover your perfect home in NYC with the power of AI. We harness <span class="font-semibold text-blue-600">StreetEasy's live data</span> combined with natural language processing to deliver a seamless, intuitive search experience. Simply describe what you're looking for in plain English, and let our intelligent platform find properties that match your exact needs and preferences.
+            </p>
         </header>
 
         <div class="w-full max-w-7xl mx-auto mb-6">
@@ -41,7 +45,7 @@
                 <input
                     type="text"
                     name="q"
-                    placeholder="Find your next home..."
+                    placeholder="Try: Pet-friendly studio in Manhattan, Family home with garden in Queens or Luxury condo near subway"
                     class="w-full py-3 pl-4 pr-28 rounded-full bg-white border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow shadow-sm"
                 >
                 <button type="submit" class="absolute inset-y-0 right-0 flex items-center justify-center px-6 bg-blue-500 text-white font-semibold rounded-full m-1.5 hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
@@ -60,6 +64,99 @@
             </iframe>
         </main>
     </div>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIBroker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Use the Poppins font family */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Custom scrollbar for a more polished look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; /* slate-100 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #60a5fa; /* blue-400 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6; /* blue-500 */
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <div class="min-h-screen flex flex-col p-4 sm:p-6 lg:p-8">
+        <header class="w-full max-w-7xl mx-auto mb-6">
+            <h1 class="text-3xl font-bold text-blue-600 mb-2">AIBroker</h1>
+            <p class="text-slate-600 text-lg leading-relaxed max-w-3xl">
+                Discover your perfect home in NYC with the power of AI. We harness <span class="font-semibold text-blue-600">StreetEasy's live data</span> combined with natural language processing to deliver a seamless, intuitive search experience. Simply describe what you're looking for in plain English, and let our intelligent platform find properties that match your exact needs and preferences.
+            </p>
+        </header>
+
+        <div class="w-full max-w-7xl mx-auto mb-6">
+            <form action="/query.html" method="get" class="relative" target="results_iframe">
+                <input
+                    type="text"
+                    name="q"
+                    placeholder="Try: Pet-friendly studio in Manhattan, Family home with garden in Queens or Luxury condo near subway"
+                    class="w-full py-3 pl-4 pr-28 rounded-full bg-white border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow shadow-sm"
+                >
+                <button type="submit" class="absolute inset-y-0 right-0 flex items-center justify-center px-6 bg-blue-500 text-white font-semibold rounded-full m-1.5 hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    Enter
+                </button>
+            </form>
+        </div>
+
+        <main class="w-full max-w-7xl mx-auto flex-grow relative">
+            <!-- Loading indicator -->
+            <div id="loading" class="hidden absolute inset-0 bg-white rounded-2xl flex items-center justify-center z-10">
+                <div class="text-center">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
+                    <p class="text-slate-600 text-lg">Loading results...</p>
+                </div>
+            </div>
+            
+            <iframe
+                id="results_iframe"
+                name="results_iframe"
+                class="w-full h-full border-0 rounded-2xl"
+                src="about:blank"
+                title="Search Results"
+                onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+20+"px"; document.getElementById("loading").classList.add("hidden");}(this));'>
+            </iframe>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const iframe = document.getElementById('results_iframe');
+            const loading = document.getElementById('loading');
+            
+            form.addEventListener('submit', function(e) {
+                // Clear iframe and show loading
+                iframe.src = 'about:blank';
+                loading.classList.remove('hidden');
+            });
+        });
+    </script>
 
 </body>
 </html>

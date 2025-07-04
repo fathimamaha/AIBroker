@@ -17,7 +17,6 @@ def health():
 def submit_prompt() -> Response:
     data = request.get_json()
 
-
     if not data or 'prompt' not in data:
         return jsonify({"error": "Missing 'prompt' in request body"}), 400
 
@@ -28,22 +27,9 @@ def submit_prompt() -> Response:
 
 @app.route("/get_query_response/<queryid>", methods=["GET"])
 def get_query_response(queryid: str) -> Response:
-    print(cache.storage)
     cached_response = cache.get_key(queryid)
 
     if not cached_response:
         return {}, 202
-
-    cached_response = {"content": cached_response, "image" : "https://miro.medium.com/v2/resize:fit:1069/1*caByH6RLCHxfGvDewB7Faw.jpeg", "url" : "https://streeteasy.com/"}
-    json_cached_response = {}
-    print(cached_response)
-
-    #for any nonsense repsonse send a cute image and some url funny
-
-    try:
-        json_cached_response = json.dumps(cached_response)
-    except (ValueError, TypeError) as e:
-        print(e)
-        return {}, 202
-
-    return json_cached_response, 200
+    
+    return cached_response, 200
