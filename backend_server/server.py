@@ -2,11 +2,8 @@ from flask import Flask, request, jsonify
 import utils.llm_utils as llm_utils
 from requests import Response
 import utils.cache_utils as cache_utils
-import json
-from flask_cors import CORS #can remove this
 
 app = Flask(__name__)
-CORS(app)
 cache = cache_utils.Cache()
 
 @app.route("/")
