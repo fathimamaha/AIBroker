@@ -2,6 +2,8 @@
 
 Discover your perfect home in NYC with the power of AI. We harness StreetEasy's live data combined with natural language processing to deliver a seamless, intuitive search experience. Simply describe what you're looking for in plain English, and let our intelligent platform find properties that match your exact needs and preferences.
 
+![](demo.gif)
+
 ---
 
 ## ✨ Summary
@@ -20,7 +22,7 @@ AIStreetEasy is a multi-component system built specifically for New York City re
 
 ## 🗺️ Architecture Flowchart
 
-<!-- Add your architecture flowchart here -->
+![](design.png)
 
 ---
 
