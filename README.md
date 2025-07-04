@@ -26,13 +26,6 @@ AIStreetEasy is a multi-component system built specifically for New York City re
 
 ---
 
-## 🎥 Demo Video
-
-<!-- Add your demo video here -->
-
----
-
-
 ## 🚀 To Dos
 
 - **Backend Caching**: Implement an external caching application on the backend server to enable persistent storage of frequently accessed data, improving performance and reducing redundant processing.
